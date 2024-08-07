@@ -82,6 +82,7 @@ func main() {
 
 	obj := rl.LoadModel("square.obj") // Load OBJ model
 	shader := rl.LoadShaderFromMemory(geomCode, vertCode, fragCode)
+	obj.Materials.Shader = shader
 
 	position := rl.NewVector3(0.0, 0.0, 0.0) // Set model position
 
@@ -96,10 +97,8 @@ func main() {
 		rl.ClearBackground(rl.RayWhite)
 
 		rl.BeginMode3D(camera)
-		rl.BeginShaderMode(shader)
-		rl.DrawModel(obj, position, 1.0, rl.White) // Draw 3d model with texture
-		rl.EndShaderMode()
-		rl.DrawGrid(20, 10.0) // Draw a grid
+		rl.DrawModel(obj, position, 1.0, rl.White) // Draw square
+		rl.DrawGrid(20, 10.0)                      // Draw a grid
 		rl.EndMode3D()
 
 		rl.EndDrawing()

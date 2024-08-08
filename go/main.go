@@ -100,7 +100,7 @@ func main() {
 	camera.Projection = rl.CameraPerspective
 
 	obj := rl.LoadModel("square.obj") // Load OBJ model
-	shader := rl.LoadShaderFromMemory(geomCode, vertCode, fragCode)
+	shader := rl.LoadShaderFromMemory(vertCode, "", "", geomCode, fragCode)
 	obj.Materials.Shader = shader
 
 	position := rl.NewVector3(0.0, 0.0, 0.0) // Set model position
